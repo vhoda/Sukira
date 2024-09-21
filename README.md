@@ -23,6 +23,8 @@ Sukira is a Discord bot designed to apply autotune to videos. With it, you can t
 
 To use the bot, you can type:
 `autotune [YouTube Link] + [Video file]`
+![image](https://github.com/user-attachments/assets/597176b6-b453-4d4b-842c-278c3a5c0050)
+
 
 **Important**: The conversion process may take some time. Please be patient; it typically takes around 3-7 seconds.
 
