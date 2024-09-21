@@ -64,7 +64,7 @@ def download(name, url, skip = None, delay = None, duration = None, video = True
             url = youtubeSearch(url)
             if not url: return False
 
-    #  print(url)
+    #print(url)
 
     urlCMD = ["yt-dlp", "--no-playlist", "-g"]
     if verbose:
@@ -108,7 +108,7 @@ def download(name, url, skip = None, delay = None, duration = None, video = True
         ffmpegCommand += ["-fflags", "+shortest"]
 
     ffmpegCommand += [name]
-    # fixPrint(ffmpegCommand)
+    #fixPrint(ffmpegCommand)
 
     if returnCode(ffmpegCommand) != 0:
         fixPrint("Error on download command:", url, skip, delay, duration, video, ffmpegCommand, urlCMD)
