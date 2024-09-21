@@ -74,7 +74,7 @@ Autotune <link or search query> - Autotune a video (attached, replied to, or rec
                     result = await loop.run_in_executor(ThreadPoolExecutor(), autotuneURL, fileName, spl[1])
                     if type(result) == str:
                         try:
-                            await message.channel.send("Autotuning!", file=discord.File(result))
+                            await message.channel.send("Autotuned! Any Problems please contact to @vhodita in twitter!", file=discord.File(result))
                             remove(result)
                         except Exception as e:
                             print(e)
