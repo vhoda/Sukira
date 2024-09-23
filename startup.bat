@@ -1,11 +1,12 @@
 @echo off
-set BOT_PATH="C:\Users\DiscordBot\Desktop\Sukira\discordBot.py"
+:: Ruta al archivo discordBot.py
+set BOT_DIR="C:\Users\DiscordBot\Desktop\Sukira"
 
 :: Cambiar al directorio del bot
-cd /d %~dp0
+cd /d %BOT_DIR%
 
 :: Ejecutar el bot con Python
-python %BOT_PATH%
+python discordBot.py
 
 :: Mantener la ventana de cmd abierta después de la ejecución
 pause
