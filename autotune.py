@@ -14,7 +14,7 @@ def getDur(f):
         ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=noprint_wrappers=1:nokey=1", f],
         stdout=subprocess.PIPE).stdout)
 
-def autotune(base, over, filename, strength=75, executableName="c:/Users/troll/Desktop/apps/Sukira/autotune.exe", reformatAudio=True, hz=48000):
+def autotune(base, over, filename, strength=75, executableName="c:/Users/DiscordBot/Desktop/apps/Sukira/autotune.exe", reformatAudio=True, hz=48000):
     strength = max(1, min(strength, 512))
     
     if reformatAudio:
@@ -29,7 +29,7 @@ def autotune(base, over, filename, strength=75, executableName="c:/Users/troll/D
         remove(base)
         remove(over)
 
-def autotuneURL(filename, URL, replaceOriginal=True, video=True, executableName="c:/Users/troll/Desktop/apps/Sukira/autotune.exe"):
+def autotuneURL(filename, URL, replaceOriginal=True, video=True, executableName="c:/Users/DiscordBot/Desktop/apps/Sukira/autotune.exe"):
     directory = os.path.split(os.path.abspath(filename))[0]
     downloadName = os.path.join(directory, f"download_{randDigits()}.wav")
     
