@@ -1,3 +1,5 @@
+![sukirabannergithub](https://github.com/user-attachments/assets/af70e216-edf2-40ea-9704-bdffeaebd5ef)
+
 # Sukira Bot
 
 Sukira is a Discord bot designed to apply autotune to videos. With it, you can transform your videos with a musical touch and easily share them on your server.
@@ -33,7 +35,7 @@ To use the bot, you can type:
 1. Clone this repository to your local machine.
 2. Install the required dependencies using pip:
 `pip install discord.py yt-dlp ffmpeg`
-3. Make sure `ffmpeg` is installed and accessible from your command line.
+3. Make sure `ffmpeg` is installed and accessible from your command line, like local PATH env in windows and PIP on terminal. (If you have problems with that, go to Restart.)
 4. Add your Discord bot token to a file named `tokens.json`:
 ```json
 {
