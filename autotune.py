@@ -25,6 +25,7 @@ exts = ["mp4", "webm", "mov", "mkv"]
 if not path.isdir(dr):
     makedirs(dr)
 
+<<<<<<< Updated upstream
 # Habilitar intents
 intents = discord.Intents.default()
 intents.messages = True
@@ -48,6 +49,10 @@ async def on_message(message):
     # Verificar que el bot pueda enviar mensajes
     if not message.guild or not message.channel.permissions_for(message.guild.me).send_messages:
         return
+=======
+def autotune(base, over, filename, strength=75, executableName="c:/Users/Discordbot/Desktop/Sukira/autotune.exe", reformatAudio=True, hz=48000):
+    strength = max(1, min(strength, 512))
+>>>>>>> Stashed changes
     
     # Reemplazar menciones
     message.content = message.content.replace(f'<@{bot.user.id}>', 'autotune')
@@ -67,6 +72,7 @@ Autotune <link or search query> - Autotune a video (attached, replied to, or rec
         await msg.edit(content=f"Pong! {ping}ms")
         return
 
+<<<<<<< Updated upstream
     # Procesar comando de autotune
     if message.content.strip().lower().startswith("autotune"):
         attach = None
@@ -77,6 +83,20 @@ Autotune <link or search query> - Autotune a video (attached, replied to, or rec
             ref_message = await message.channel.fetch_message(message.reference.message_id)
             if ref_message.attachments:
                 attach = ref_message.attachments[0]
+=======
+def autotuneURL(filename, URL, replaceOriginal=True, video=True, executableName="c:/Users/Discordbot/Desktop/Sukira/autotune.exe"):
+    directory = os.path.split(os.path.abspath(filename))[0]
+    downloadName = os.path.join(directory, f"download_{randDigits()}.wav")
+    
+    # Descargar el audio
+    result = download(downloadName, URL, video=False, duration=2 * 60)
+    
+    if result:
+        wavName = os.path.join(directory, f'vidAudio_{randDigits()}.wav')
+        
+        if video:
+            loud_run(["ffmpeg", "-hide_banner", "-loglevel", loglevel, "-i", filename, "-ac", "1", wavName])
+>>>>>>> Stashed changes
         else:
             # Buscar mensajes anteriores
             async for m in message.channel.history(limit=messageCheckAmount):
