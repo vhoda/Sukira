@@ -35,7 +35,7 @@ To use the bot, you can type:
 1. Clone this repository to your local machine.
 2. Install the required dependencies using pip:
 `pip install discord.py yt-dlp ffmpeg`
-3. Make sure `ffmpeg` is installed and accessible from your command line.
+3. Make sure `ffmpeg` is installed and accessible from your command line, like local PATH env in windows and PIP on terminal. (If you have problems with that, go to Restart.)
 4. Add your Discord bot token to a file named `tokens.json`:
 ```json
 {
