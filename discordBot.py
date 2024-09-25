@@ -3,6 +3,7 @@ import asyncio
 import random
 import json
 import os
+import time  # Para el comando ping
 from concurrent.futures import ThreadPoolExecutor
 from subprocessHelper import *
 from pathHelper import *
@@ -10,7 +11,7 @@ from download import download
 from autotune import *
 from os import remove, path, makedirs
 from re import sub
-import time  
+
 # Cargar el token del bot desde un archivo JSON
 TOKEN = json.load(open("tokens.json"))["discord"]
 
@@ -56,6 +57,7 @@ async def on_message(message):
         await message.channel.send("""Bot usage:
 Autotune <link or search query> - Autotune a video (attached, replied to, or recent in channel) to another video.""")
         return
+    
     # Comando ping para calcular la latencia
     if message.content.strip().lower() == "autotune ping":
         start_time = time.time()  # Guardar el tiempo inicial
@@ -65,6 +67,7 @@ Autotune <link or search query> - Autotune a video (attached, replied to, or rec
         await msg.edit(content=f"Pong! {ping}ms")
         return
 
+    # Procesar comando de autotune
     if message.content.strip().lower().startswith("autotune"):
         attach = None
         # Verificar si hay un archivo adjunto
@@ -87,6 +90,7 @@ Autotune <link or search query> - Autotune a video (attached, replied to, or rec
                 if len(spl := sub(' +', ' ', message.content.strip()).split(' ', 1)) > 1:
                     fileName = os.path.join(dr, f'discord_{random.random()}{attach.filename}')
                     await attach.save(fileName)
+                    await message.channel.send("Autotuning!")  # Enviar mensaje antes de iniciar el proceso de autotune
                     try:
                         loop = asyncio.get_event_loop()
                         # Añadir un límite de tiempo para el autotune
