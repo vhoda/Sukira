@@ -10,7 +10,7 @@ from download import download
 from autotune import *
 from os import remove, path, makedirs
 from re import sub
-
+import time  
 # Cargar el token del bot desde un archivo JSON
 TOKEN = json.load(open("tokens.json"))["discord"]
 
@@ -55,6 +55,14 @@ async def on_message(message):
     if message.content.strip().lower() == "autotune help":
         await message.channel.send("""Bot usage:
 Autotune <link or search query> - Autotune a video (attached, replied to, or recent in channel) to another video.""")
+        return
+    # Comando ping para calcular la latencia
+    if message.content.strip().lower() == "autotune ping":
+        start_time = time.time()  # Guardar el tiempo inicial
+        msg = await message.channel.send("Pinging...")
+        end_time = time.time()  # Guardar el tiempo final
+        ping = round((end_time - start_time) * 1000)  # Calcular la latencia en milisegundos
+        await msg.edit(content=f"Pong! {ping}ms")
         return
 
     if message.content.strip().lower().startswith("autotune"):
