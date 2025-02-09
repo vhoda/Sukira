@@ -1,5 +1,5 @@
 ![sukirabannergithub](https://github.com/user-attachments/assets/af70e216-edf2-40ea-9704-bdffeaebd5ef)
-
+! Now offline but you can install locally on your Server / VPS
 # Sukira Bot
 
 Sukira is a Discord bot designed to apply autotune to videos. With it, you can transform your videos with a musical touch and easily share them on your server.
